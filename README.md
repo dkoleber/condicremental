@@ -24,6 +24,11 @@ Goals, once paid for, can unlock Resources and other Goals, and can provide amou
 <img src="incremental_1.png"/>
 </p>
 
+### Notes for Extension
 
+The game is currently more a proof-of-concept than anything anything else and is certainly not finished (but probably won't be developed further). 
+`buider_gui.py` is a pyqt5 GUI app that allows the user to construct a set of goals with Resource/Producer name recommendations. 
+The user should manually fill out auto-generated Resource/Producer fields after the app generates a .json file.
+The json string should then be copied into the data_str variable in `components.js`. 
 
-
+To use `builder_gui.py`, you'll need to `pip install pyqt5 graphviz` and install the Graphviz application (and add it's executable to PATH).
