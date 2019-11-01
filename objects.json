@@ -1,0 +1,81 @@
+{
+    "goals":[
+        {
+            "name": "tab producer",
+            "resource_dependencies": {
+                "units": 50
+            },
+            "goal_dependencies":[],
+            "resource_costs":{
+                "units" : 100
+            },
+            "resource_outputs":{
+                "tab_producer": 0,
+                "tabs": 0
+            }
+        },
+        {
+            "name": "producer producer",
+            "resource_dependencies":{
+                "units": 500,
+                "unit_producer": 15
+            },
+            "goal_dependencies": ["tab producer"],
+            "resource_costs":{
+                "unit_producer": 10
+            },
+            "resource_outputs":{
+                "producer_producer" : 0
+            }
+        }
+    ],
+    "producers":[
+        {
+            "name": "unit_producer",
+            "variable_name": "UNIT_PRODUCER",
+            "output_type": "units",
+            "output_quantity": 1,
+            "yield_function": "return 1;",
+            "cost_type": "units",
+            "cost_base": 10,
+            "cost_function": "return Math.floor(base_cost * Math.pow(1.1, count-1));",
+            "enabled": true
+        },
+        {
+            "name": "tab_producer",
+            "variable_name": "TAB_PRODUCER",
+            "output_type": "tabs",
+            "output_quantity": 1,
+            "yield_function": "return 1;",
+            "cost_type": "units",
+            "cost_base": 100,
+            "cost_function": "return Math.floor(base_cost * Math.pow(1.1, count-1));",
+            "enabled": false
+        },
+        {
+            "name": "producer_producer",
+            "variable_name": "PRODUCER_PRODUCER",
+            "output_type": "unit_producer",
+            "output_quantity": 1,
+            "yield_function": "return 1;",
+            "cost_type": "tabs",
+            "cost_base": 100,
+            "cost_function": "return Math.floor(base_cost * Math.pow(1.1, count-1));",
+            "enabled": false
+        }
+    ],
+    "resources":[
+        {
+            "name": "units",
+            "variable_name": "UNITS",
+            "quantity": 20,
+            "enabled": true
+        },
+        {
+            "name": "tabs",
+            "variable_name": "TABS",
+            "quantity": 0,
+            "enabled": false
+        }
+    ]
+}
